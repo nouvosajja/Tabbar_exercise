@@ -10,6 +10,7 @@ class CardProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 78, 78, 78),
         body: SafeArea(child: Column(

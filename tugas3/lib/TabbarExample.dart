@@ -17,8 +17,8 @@ class _TabbarExampleState extends State<TabbarExample>with SingleTickerProviderS
     int _selectedIndex = 0;
 
   List<Widget> list = [
+    Tab(icon: Icon(Icons.sports_soccer_outlined)),
     Tab(icon: Icon(FontAwesomeIcons.twitter),),
-    Tab(icon: Icon(FontAwesomeIcons.soccerBall)),
     Tab(icon: Icon(Icons.person_outlined)),
   ];
 
@@ -56,8 +56,8 @@ class _TabbarExampleState extends State<TabbarExample>with SingleTickerProviderS
         body: TabBarView(
           controller: _controller,
           children: [
-            Twitter(),
             ListFootballPL(),
+            Twitter(),
             CardProfile()
           ],
         ),

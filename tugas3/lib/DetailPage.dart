@@ -1,3 +1,4 @@
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tugas3/PremierLeagueModel.dart';
@@ -20,37 +21,40 @@ class _DetailPageState extends State<DetailPage> {
     } else {}
   }
 
-  var linktext = TextStyle(color: Colors.blue);
+  var linktext = const TextStyle(color: Colors.blue);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Description"),
-        backgroundColor: Color.fromARGB(255, 114, 114, 114),
+        backgroundColor: const Color.fromARGB(255, 114, 114, 114),
       ),
+       backgroundColor: Color.fromARGB(255, 78, 78, 78),
       
       body: SingleChildScrollView(
         child: Center(
           child: Container(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20,),
+                Container(
+                  child: Image.network(widget.teams.strTeamFanart1.toString(),),
+                ),
+                const SizedBox(height: 20,),
                 Container(
                   height: 95,
                   width: 95,
                   child: Image.network(widget.teams.strTeamBadge.toString())
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 Text(widget.teams.strTeam.toString(),
-                style: TextStyle(
-                  fontSize: 20,
+                style: const TextStyle(
+                  fontSize: 20,color: Colors.white,
                   fontWeight: FontWeight.bold
                   ),),
-                SizedBox(height: 20,),
-                Text(widget.teams.strStadium.toString()),
-                Text('Since ' + widget.teams.intFormedYear.toString()),
-                SizedBox(height: 25,),
+                const SizedBox(height: 20,),
+                Text(widget.teams.strStadium.toString(),style: const TextStyle(color: Colors.white)),
+                Text('Since ' + widget.teams.intFormedYear.toString(),style: const TextStyle(color: Colors.white),),
+                const SizedBox(height: 25,),
                 InkWell(
                     onTap: () {
                       var myUrl =
@@ -61,7 +65,7 @@ class _DetailPageState extends State<DetailPage> {
                     style: linktext,
                     ),
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                  Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -71,39 +75,53 @@ class _DetailPageState extends State<DetailPage> {
                           "https://" + widget.teams.strYoutube.toString();
                       _launchInBrowser(myUrl);
                     },
-                    child: Icon(FontAwesomeIcons.youtube, color: Colors.red,)),
+                    child: const Icon(FontAwesomeIcons.youtube, color: Colors.red,)),
                 InkWell(
                     onTap: () {
                       var myUrl =
                           "https://" + widget.teams.strInstagram.toString();
                       _launchInBrowser(myUrl);
                     },
-                    child: Icon(FontAwesomeIcons.instagram)),
+                    child: Image.asset("assets/img/ig.png",width: 28,height: 28,)),
                 InkWell(
                     onTap: () {
                       var myUrl =
                           "https://" + widget.teams.strTwitter.toString();
                       _launchInBrowser(myUrl);
                     },
-                    child: Icon(FontAwesomeIcons.twitter, color: Colors.lightBlue,)),
+                    child: const Icon(FontAwesomeIcons.twitter, color: Colors.lightBlue,)),
                     InkWell(
                     onTap: () {
                       var myUrl =
                           "https://" + widget.teams.strFacebook.toString();
                       _launchInBrowser(myUrl);
                     },
-                    child: Icon(FontAwesomeIcons.facebook, color: Colors.blueAccent,)),
+                    child: const Icon(FontAwesomeIcons.facebook, color: Colors.blueAccent,)),
               ],
             ),
-                SizedBox(height: 20,),
-                Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(widget.teams.strDescriptionEN.toString(),
-                    textAlign: (TextAlign.justify),
+                const SizedBox(height: 20,),
+                
+                Card(
+                  shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(50,),topRight: Radius.circular(50)),
                   ),
+                  
+                 child:Container(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+                      Text("Description", style: TextStyle(fontSize: 20),),
+                      SizedBox(height: 15,),
+                      Container(
+                       child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(widget.teams.strDescriptionEN.toString(),
+                    textAlign: (TextAlign.justify), )),
+                    ),
+                   ],
+                  ),
+                 )
                 ),
-                SizedBox(height: 20,),
-               
               ],
             ),
           ),

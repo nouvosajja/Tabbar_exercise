@@ -71,8 +71,8 @@ class _ListFootballPLState extends State<ListFootballPL> {
                             children: [
                               Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  width: 30,
-                                  height: 30,
+                                  width: 40,
+                                  height: 40,
                                   child: FadeInImage.assetNetwork(placeholder: 'assets/gif/loading1.gif', image: '${premierLeagueModel!.teams![index].strTeamBadge.toString()}')),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +84,17 @@ class _ListFootballPLState extends State<ListFootballPL> {
                                       .teams![index].strStadium
                                       .toString()),
                                 ],
-                              )
+                              ),
+                              Spacer(),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_right_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(teams: premierLeagueModel!.teams![index])),);
+                                  },
+                                ),
                             ],
                           ),
                         ),

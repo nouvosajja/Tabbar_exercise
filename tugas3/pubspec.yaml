@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/img/PP.jpeg
     - assets/gif/loading1.gif
+    - assets/img/ig.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
